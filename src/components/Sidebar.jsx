@@ -29,6 +29,11 @@ const Sidebar = () => {
       label: "button",
       url: "Button",
     },
+    {
+      id: 5,
+      label: "accordion",
+      url: "Accordion",
+    },
   ];
 
   return (
