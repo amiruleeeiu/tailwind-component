@@ -1,0 +1,66 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@test-utils": ["./test-utils"]
+    },
+    "jsxImportSource": "react",
+    "types": ["react", "react-dom"]
+  },
+
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/main.jsx",
+    "src/components/application/**/*.tsx",
+    "src/useContext/**/*.tsx",
+    "src/useContext/**/*.js",
+    "src/assets/svg/**/*.tsx",
+
+    "src/assets/svg/UploadButtonIcon.tsx",
+    "src/assets/svg/Right.tsx",
+    "src/assets/svg/Research.tsx",
+    "src/assets/svg/Report.tsx",
+    "src/assets/svg/PlusBtn.tsx",
+    "src/assets/svg/Notification.tsx",
+    "src/assets/svg/FileUpload.tsx",
+    "src/assets/svg/Inovation.tsx",
+    "src/assets/svg/InovationPCR.tsx",
+    "src/assets/svg/MinusBtn.tsx",
+    "src/assets/svg/Solicitation.tsx",
+    "src/assets/svg/Search.tsx",
+    "src/assets/svg/RightArrow.tsx",
+    "src/assets/svg/Dashboard.tsx",
+    "src/assets/svg/CompleteIcon.tsx",
+    "src/assets/svg/DownArrow.tsx",
+    "src/assets/svg/BookSvg.tsx",
+    "src/assets/svg/ClockSvg.tsx",
+    "src/assets/svg/CircleSvg.tsx",
+    "src/assets/svg/Download.tsx"
+, "src/components/common/budget/scrollView.tsx"  ],
+
+  "exclude": ["node_modules", "dist", "build"]
+}
