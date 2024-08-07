@@ -31,31 +31,19 @@ const TablePage: React.FC = () => {
     {
       id: 1,
       name: "John Doe",
-      age: (
-        <div className="py-1 text-center bg-green-500 text-white rounded-full">
-          28
-        </div>
-      ),
+      age: 22,
       email: "john@example.com",
     },
     {
       id: 2,
       name: "Jane Smith",
-      age: (
-        <div className="py-1 text-center bg-green-500 text-white rounded-full">
-          34
-        </div>
-      ),
+      age: 36,
       email: "jane@example.com",
     },
     {
       id: 3,
       name: "Sam Green",
-      age: (
-        <div className="py-1 text-center bg-green-500 text-white rounded-full">
-          45
-        </div>
-      ),
+      age: 45,
       email: "sam@example.com",
     },
   ];
