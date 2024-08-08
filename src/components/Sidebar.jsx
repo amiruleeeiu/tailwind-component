@@ -53,7 +53,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`fixed inset-y-0 left-0 z-30 w-48 bg-blue-600 transform ${
+      className={`fixed inset-y-0 left-0 z-30 w-48 bg-sky-600 transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 ease-in-out md:relative md:translate-x-0`}
     >
@@ -86,7 +86,7 @@ const Sidebar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "flex text-2xl p-3 px-6 bg-blue-800"
+                    ? "flex text-2xl p-3 px-6 bg-sky-700"
                     : "flex text-2xl p-3 px-6  duration-300"
                 }
                 to={i.url}

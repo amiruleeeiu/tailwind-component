@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 
 const colorClasses: Record<string, string> = {
   primary:
-    "bg-sky-600 border border-sky-600 text-white hover:bg-sky-800 focus:ring-sky-500",
+    "bg-sky-600 border border-sky-600 text-white hover:bg-sky-700 focus:ring-sky-700",
   info: "bg-cyan-600 border border-cyan-600 text-white hover:bg-cyan-800 focus:ring-cyan-500",
   success:
     "bg-green-700 border border-green-700 text-white hover:bg-green-800 focus:ring-green-800",
