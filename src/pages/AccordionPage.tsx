@@ -1,11 +1,11 @@
-import Accordion from "@/components/Accordion";
+import AccordionItem, { Accordion } from "@/components/Accordion";
 import CodeBlock from "@/components/CodeBlock";
 
 function AccordionPage() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="mt-5 border rounded">
-        <Accordion title="Accordion Item 1" activeColor="bg-blue-100">
+      <Accordion>
+        <AccordionItem title="Accordion Item 1" activeColor="bg-blue-600 text-white">
           <p>
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected
@@ -14,22 +14,22 @@ function AccordionPage() {
             need to be sure there isn't anything embarrassing hidden in the
             middle of text. All the Lorem Ipsum.
           </p>
-        </Accordion>
-        <Accordion title="Accordion Item 2">
+        </AccordionItem>
+        <AccordionItem title="Accordion Item 2">
           <p>
             Content to use a passage of Lorem Ipsum, you need to be sure there
             isn't anything embarrassing hidden in the middle of text. All the
             Lorem Ipsum. for the second accordion item.
           </p>
-        </Accordion>
-        <Accordion title="Accordion Item 3">
+        </AccordionItem>
+        <AccordionItem title="Accordion Item 3">
           <p>
             Content for the alteration in some form, by injected humour, or
             randomised words which don't look even slightly believable. If you
             are going to use third accordion item.
           </p>
-        </Accordion>
-      </div>
+        </AccordionItem>
+      </Accordion>
       <CodeBlock language="javascript">
         {`import React, { ReactNode, useEffect, useRef, useState } from "react";
 

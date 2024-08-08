@@ -1,8 +1,10 @@
+import classNames from "classnames";
 import { FC, ReactNode } from "react";
 
 const colorClasses: Record<string, string> = {
   primary:
-    "bg-blue-600 border border-blue-600 text-white hover:bg-blue-800 focus:ring-blue-500",
+    "bg-sky-600 border border-sky-600 text-white hover:bg-sky-800 focus:ring-sky-500",
+  info: "bg-cyan-600 border border-cyan-600 text-white hover:bg-cyan-800 focus:ring-cyan-500",
   success:
     "bg-green-700 border border-green-700 text-white hover:bg-green-800 focus:ring-green-800",
   warning:
@@ -13,7 +15,8 @@ const colorClasses: Record<string, string> = {
 
 const outlineColorClasses: Record<string, string> = {
   primary:
-    "shadow-lg border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500",
+    "shadow-lg border border-sky-500 text-sky-600 hover:bg-sky-600 hover:text-white focus:ring-sky-500",
+  info: "shadow-lg border border-cyan-500 text-cyan-600 hover:bg-cyan-600 hover:text-white focus:ring-cyan-500",
   success:
     "shadow-md border border-green-700 text-green-700 hover:bg-green-700 hover:text-white focus:ring-green-700",
   warning:
@@ -34,10 +37,10 @@ interface ButtonProps {
   children: ReactNode;
   className?: string;
   disabled?: boolean;
-  color?: "primary" | "success" | "warning" | "danger";
+  color?: "primary" | "success" | "warning" | "danger" | "info";
   size?: "md" | "lg" | "xl";
   outline?: boolean;
-  loading?: boolean;
+  isLoading?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -49,25 +52,30 @@ const Button: FC<ButtonProps> = ({
   color = "primary",
   size = "lg",
   outline = false,
-  loading = false,
+  isLoading = false,
 }) => {
-  disabled = loading ? loading : disabled;
-  const baseClasses = "rounded focus:outline-none transition duration-300";
-  const disabledClasses = "opacity-50 cursor-not-allowed";
-  const colorClass = outline ? outlineColorClasses[color] : colorClasses[color];
-  const sizeClass = sizeClasses[size];
+  disabled = isLoading ? isLoading : disabled;
+
+  const buttonClass = classNames(
+    "flex items-center gap-1 rounded focus:outline-none transition duration-300",
+    sizeClasses[size],
+    {
+      [outlineColorClasses[color]]: outline,
+      [colorClasses[color]]: !outline,
+      [className]: className,
+      "opacity-50 cursor-not-allowed": disabled,
+    }
+  );
 
   return (
     <div>
       <button
         type={type}
         onClick={onClick}
-        className={`flex items-center gap-1 ${baseClasses} ${sizeClass} ${colorClass} ${className} ${
-          disabled ? disabledClasses : ""
-        }`}
+        className={buttonClass}
         disabled={disabled}
       >
-        {loading && (
+        {isLoading && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1.2em"

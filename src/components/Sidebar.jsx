@@ -26,13 +26,28 @@ const Sidebar = () => {
     },
     {
       id: 4,
-      label: "button",
-      url: "Button",
+      label: "Button",
+      url: "button",
     },
     {
       id: 5,
-      label: "accordion",
-      url: "Accordion",
+      label: "Accordion",
+      url: "accordion",
+    },
+    {
+      id: 6,
+      label: "Modal",
+      url: "modal",
+    },
+    {
+      id: 7,
+      label: "Card",
+      url: "card",
+    },
+    {
+      id: 8,
+      label: "Avatar",
+      url: "avatar",
     },
   ];
 

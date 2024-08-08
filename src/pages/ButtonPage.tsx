@@ -22,7 +22,7 @@ const ButtonPage: React.FC = () => {
           onClick={() => alert("Primary Button clicked!")}
           color="primary"
           size="md"
-          loading
+          isLoading
         >
           Outline
         </Button>
@@ -36,9 +36,17 @@ const ButtonPage: React.FC = () => {
         </Button>
         <Button
           onClick={() => alert("Success Button clicked!")}
+          color="info"
+          size="lg"
+          outline
+        >
+          Info
+        </Button>
+        <Button
+          onClick={() => alert("Success Button clicked!")}
           color="success"
           size="lg"
-          loading
+          isLoading
         >
           Success
         </Button>
@@ -49,6 +57,13 @@ const ButtonPage: React.FC = () => {
           outline
         >
           Warning
+        </Button>
+        <Button
+          onClick={() => alert("Danger Button clicked!")}
+          color="danger"
+          size="md"
+        >
+          Danger
         </Button>
       </div>
       <div></div>

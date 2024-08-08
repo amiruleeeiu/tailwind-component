@@ -1,12 +1,13 @@
+import classNames from "classnames";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 
-interface AccordionProps {
+interface AccordionItemProps {
   title: string;
   children: ReactNode;
   activeColor?: string;
 }
 
-const Accordion: React.FC<AccordionProps> = ({
+const AccordionItem: React.FC<AccordionItemProps> = ({
   title,
   children,
   activeColor = "bg-green-50",
@@ -25,21 +26,24 @@ const Accordion: React.FC<AccordionProps> = ({
     setIsOpen(!isOpen);
   };
 
-  const isOpenBtnClass = `${activeColor} border-b `;
+  const buttonClass = classNames(
+    "p-4 flex justify-between items-center transition-colors w-full text-left focus:outline-none ease-in-out",
+    {
+      [activeColor]: isOpen,
+      "border-b": true,
+    }
+  );
+
+  const iconClass = classNames("w-5 h-5 transition-transform duration-100", {
+    "transform rotate-180": isOpen,
+  });
 
   return (
-    <div className=" border-gray-200 border-b w-full">
-      <button
-        className={`p-4 flex justify-between items-center transition-colors w-full text-left focus:outline-none ease-in-out ${
-          isOpen ? isOpenBtnClass : ""
-        }`}
-        onClick={toggleAccordion}
-      >
+    <div className="border-gray-200 border-b w-full">
+      <button className={buttonClass} onClick={toggleAccordion}>
         <span className="font-medium">{title}</span>
         <svg
-          className={`w-5 h-5 transition-transform duration-100 ${
-            isOpen ? "transform rotate-180" : ""
-          }`}
+          className={iconClass}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -64,4 +68,12 @@ const Accordion: React.FC<AccordionProps> = ({
   );
 };
 
-export default Accordion;
+export default AccordionItem;
+
+interface AccordionProps {
+  children: ReactNode;
+}
+
+export const Accordion: React.FC<AccordionProps> = ({ children }) => {
+  return <div className="mt-5 border rounded">{children}</div>;
+};

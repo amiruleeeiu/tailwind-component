@@ -73,6 +73,7 @@ const Table: React.FC<ReusableTableProps> = ({ columns, data, actions }) => {
                   {actions.edit && (
                     <Button
                       color="success"
+                      outline
                       onClick={() => actions.edit!(row.id)}
                     >
                       Edit
