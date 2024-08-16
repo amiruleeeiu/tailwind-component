@@ -1,37 +1,42 @@
 import AccordionItem, { Accordion } from "@/components/Accordion";
 import CodeBlock from "@/components/CodeBlock";
+import PageWrapper from "@/Layout/PageWrapper/PageWrapper";
 
 function AccordionPage() {
   return (
-    <div className="flex flex-col gap-4">
-      <Accordion>
-        <AccordionItem title="Accordion Item 1" activeColor="bg-blue-600 text-white">
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you
-            need to be sure there isn't anything embarrassing hidden in the
-            middle of text. All the Lorem Ipsum.
-          </p>
-        </AccordionItem>
-        <AccordionItem title="Accordion Item 2">
-          <p>
-            Content to use a passage of Lorem Ipsum, you need to be sure there
-            isn't anything embarrassing hidden in the middle of text. All the
-            Lorem Ipsum. for the second accordion item.
-          </p>
-        </AccordionItem>
-        <AccordionItem title="Accordion Item 3">
-          <p>
-            Content for the alteration in some form, by injected humour, or
-            randomised words which don't look even slightly believable. If you
-            are going to use third accordion item.
-          </p>
-        </AccordionItem>
-      </Accordion>
-      <CodeBlock language="javascript">
-        {`import React, { ReactNode, useEffect, useRef, useState } from "react";
+    <PageWrapper title="Accordion">
+      <div className="flex flex-col gap-4">
+        <Accordion>
+          <AccordionItem
+            title="Accordion Item 1"
+            activeColor="bg-blue-600 text-white"
+          >
+            <p>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable. If you are going to use a passage of Lorem
+              Ipsum, you need to be sure there isn't anything embarrassing
+              hidden in the middle of text. All the Lorem Ipsum.
+            </p>
+          </AccordionItem>
+          <AccordionItem title="Accordion Item 2">
+            <p>
+              Content to use a passage of Lorem Ipsum, you need to be sure there
+              isn't anything embarrassing hidden in the middle of text. All the
+              Lorem Ipsum. for the second accordion item.
+            </p>
+          </AccordionItem>
+          <AccordionItem title="Accordion Item 3">
+            <p>
+              Content for the alteration in some form, by injected humour, or
+              randomised words which don't look even slightly believable. If you
+              are going to use third accordion item.
+            </p>
+          </AccordionItem>
+        </Accordion>
+        <CodeBlock language="javascript">
+          {`import React, { ReactNode, useEffect, useRef, useState } from "react";
 
 interface AccordionProps {
   title: string;
@@ -75,8 +80,9 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
 
 export default Accordion;
 `}
-      </CodeBlock>
-    </div>
+        </CodeBlock>
+      </div>
+    </PageWrapper>
   );
 }
 
