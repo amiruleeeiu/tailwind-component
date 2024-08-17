@@ -1,13 +1,16 @@
-import { configureStore, EnhancedStore } from "@reduxjs/toolkit";
-import { api } from "../features/api";
+import { configureStore } from "@reduxjs/toolkit";
+import { apiSlice } from "../features/app/appSlice";
 
-export const store: EnhancedStore = configureStore({
+export type RootState = {
+  [apiSlice.reducerPath]: ReturnType<typeof apiSlice.reducer>;
+  // Add other slices as needed
+};
+
+export const store = configureStore({
   reducer: {
-    [api.reducerPath]: api.reducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  //   devTools:!process.env.NODE_ENV==='production',
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(api.middleware),
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;

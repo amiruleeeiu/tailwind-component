@@ -1,9 +1,12 @@
+import { fileUpload } from "@/menu";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import UserService from "UserService";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const isLoggedIn = UserService.isLoggedIn();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -50,6 +53,11 @@ const Sidebar: React.FC = () => {
       label: "Avatar",
       url: "avatar",
     },
+    {
+      id: 9,
+      label: fileUpload.text,
+      url: fileUpload.path,
+    },
   ];
 
   return (
@@ -87,8 +95,8 @@ const Sidebar: React.FC = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "flex text-2xl p-3 px-6 bg-sky-700"
-                    : "flex text-2xl p-3 px-6  duration-300"
+                    ? "flex font-semibold text-xl p-3 px-6 bg-sky-700"
+                    : "flex font-semibold text-xl p-3 px-6  duration-300"
                 }
                 to={i.url}
               >
@@ -96,19 +104,35 @@ const Sidebar: React.FC = () => {
               </NavLink>
             </li>
           ))}
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "flex text-2xl p-3 px-6 bg-sky-700"
-                  : "flex text-2xl p-3 px-6  duration-300"
-              }
-              to="/"
-              onClick={() => UserService.doLogout()}
-            >
-              Log Out
-            </NavLink>
-          </li>
+          {isLoggedIn ? (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "flex font-semibold text-xl p-3 px-6 bg-sky-700"
+                    : "flex font-semibold text-xl p-3 px-6  duration-300"
+                }
+                to="/"
+                onClick={() => UserService.doLogout()}
+              >
+                Log Out
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "flex text-2xl p-3 px-6 bg-sky-700"
+                    : "flex text-2xl p-3 px-6  duration-300"
+                }
+                to="/"
+                onClick={() => UserService.doLogin()}
+              >
+                LogIn
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </div>
