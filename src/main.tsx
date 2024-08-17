@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import UserService from "../UserService.js";
+import { store } from "./app/store.js";
+import "./index.css";
+import App from "./App.js";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const renderApp = () =>
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+
+UserService.initKeycloak(renderApp);

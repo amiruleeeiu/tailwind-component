@@ -1,16 +1,21 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import UserService from "UserService";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Layout from "./Layout/PageWrapper/Layout";
 import { routers } from "./Routes/routers";
 
 const App: React.FC = () => {
+  console.log(UserService.isLoggedIn());
+
   return (
     <ErrorBoundary>
-      <Router>
-        <Layout>{routers}</Layout>
-      </Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Router>
+          <Layout>{routers}</Layout>
+        </Router>
+      </Suspense>
     </ErrorBoundary>
   );
 };

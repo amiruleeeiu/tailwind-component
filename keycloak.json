@@ -1,0 +1,6 @@
+{
+  "realm": "BEPRC",
+  "auth-server-url": "https://uat-beprc.oss.net.bd/idp/",
+  "resource": "beprc-public",
+  "public-client": true
+}

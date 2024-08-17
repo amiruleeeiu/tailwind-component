@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import UserService from "UserService";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,6 +96,19 @@ const Sidebar: React.FC = () => {
               </NavLink>
             </li>
           ))}
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "flex text-2xl p-3 px-6 bg-sky-700"
+                  : "flex text-2xl p-3 px-6  duration-300"
+              }
+              to="/"
+              onClick={() => UserService.doLogout()}
+            >
+              Log Out
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>

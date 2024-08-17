@@ -13,6 +13,6 @@ export const routes: RoutersType[] = [
   {
     path: "card",
     element: <CardPage />,
-    roles: ["ADMIN", "USER"],
+    roles: ["USER"],
   },
 ];

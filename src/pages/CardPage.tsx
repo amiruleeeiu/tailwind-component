@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import Card, { CardContent, CardFooter, CardHeader } from "@/components/Card";
+import UserService from "UserService";
 
 const CardPage = () => {
   return (
@@ -20,7 +21,9 @@ const CardPage = () => {
             <Button color="info" outline>
               Back
             </Button>
-            <Button color="primary">Action</Button>
+            <Button color="primary" onClick={() => UserService.doLogout()}>
+              Log Out
+            </Button>
           </CardFooter>
         </Card>
       </div>
