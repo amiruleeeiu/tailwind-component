@@ -6,7 +6,7 @@ import "./App.css";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Loading from "./components/Loading";
 import Layout from "./Layout/PageWrapper/Layout";
-import { routers } from "./Routes/routers";
+import Routers from "./Routes/Routers";
 
 const App: React.FC = () => {
   console.log(UserService.isLoggedIn());
@@ -15,7 +15,9 @@ const App: React.FC = () => {
     <ErrorBoundary>
       <Suspense fallback={<Loading />}>
         <Router>
-          <Layout>{routers}</Layout>
+          <Layout>
+            <Routers />
+          </Layout>
         </Router>
       </Suspense>
     </ErrorBoundary>

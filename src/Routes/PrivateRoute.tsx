@@ -16,6 +16,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, roles }) => {
       refetchOnMountOrArgChange: true,
     }
   );
+
   console.log(data);
 
   const isAuthenticated = UserService.isLoggedIn();
@@ -27,7 +28,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children, roles }) => {
   }
 
   if (!isAuthenticated && !isFetching && !isLoading) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
   console.log(isAuthenticated);

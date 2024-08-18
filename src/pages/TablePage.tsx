@@ -3,7 +3,7 @@ import React, { ReactElement } from "react";
 import Table from "../components/Table";
 
 export interface User {
-  id: number | string;
+  id: number;
   name: string | ReactElement;
   age: number | ReactElement;
   email: string | ReactElement;
@@ -31,7 +31,7 @@ const TablePage: React.FC = () => {
     {
       id: 1,
       name: "John Doe",
-      age: 22,
+      age: 23,
       email: "john@example.com",
     },
     {

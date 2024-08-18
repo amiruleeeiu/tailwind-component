@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import FileUpload from "@/components/UploadFile";
 import { fileUpload } from "@/menu";
+import Home from "@/pages/Home";
 import { lazy, ReactElement } from "react";
 
 interface RoutersType {
@@ -19,6 +20,11 @@ const ModalPage = lazy(() => import("@/pages/ModalPage"));
 const TablePage = lazy(() => import("@/pages/TablePage"));
 
 export const routes: RoutersType[] = [
+  {
+    path: "/",
+    element: <Home />,
+    roles: ["USER", "INNOVATION_ADMIN"],
+  },
   {
     path: "card",
     element: <CardPage />,

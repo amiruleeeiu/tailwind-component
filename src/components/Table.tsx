@@ -1,14 +1,10 @@
+import { User } from "@/pages/TablePage";
 import React from "react";
 import Button from "./Button";
 
 interface Column {
   Header: string;
   accessor: string;
-}
-
-interface User {
-  id: number;
-  [key: string]: any;
 }
 
 interface Actions {
@@ -57,7 +53,7 @@ const Table: React.FC<ReusableTableProps> = ({ columns, data, actions }) => {
             >
               {columns.map((column) => (
                 <td key={column.accessor} className="py-2 px-4 text-sm">
-                  {row[column.accessor] ?? "—"}
+                  {row[column.accessor as keyof User] ?? "_"}
                 </td>
               ))}
               {actions && (
